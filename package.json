@@ -1,0 +1,35 @@
+{
+  "engines": {
+    "node": "6.5.0"
+  },
+  "name": "mocha-mongod-process-hooks",
+  "version": "0.1.0",
+  "description": "A set of mocha hooks that run a mongod process around a test suite.",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/_mocha ./tests/ --recursive"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannybster/mocha-mongod-process-hooks.git"
+  },
+  "keywords": [
+    "mocha",
+    "mongod",
+    "process"
+  ],
+  "author": "Daniel Bruce",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannybster/mocha-mongod-process-hooks/issues"
+  },
+  "homepage": "https://github.com/dannybster/mocha-mongod-process-hooks#readme",
+  "devDependencies": {
+    "mocha": "^3.1.0",
+    "ps-node": "^0.1.2",
+    "should": "^11.1.0"
+  },
+  "dependencies": {
+    "mocha-process-hooks": "^0.1.1"
+  }
+}
