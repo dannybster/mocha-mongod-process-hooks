@@ -1,5 +1,3 @@
-console.log(process.version);
-
 const ps = require('ps-node');
 const should = require('should');
 

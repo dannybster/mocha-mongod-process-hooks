@@ -3,7 +3,7 @@
     "node": "6.5.0"
   },
   "name": "mocha-mongod-process-hooks",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A set of mocha hooks that run a mongod process around a test suite.",
   "main": "index.js",
   "scripts": {
