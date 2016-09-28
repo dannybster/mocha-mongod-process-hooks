@@ -9,7 +9,8 @@ module.exports = ({ mongodBinPath = '', logLevel = '20', timeout = 10000, mongod
         command: path.join(mongodBinPath, 'mongod'),
         successOutput: 'waiting for connections on port',
         errorOutput: 'exception',
-        arguments: `--port ${mongodPort} --dbpath ${mongodDBPath}`
+        args: ['--port', mongodPort, '--dbpath', mongodDBPath]
     };
+
     return require('mocha-process-hooks')(processOptions);
 }

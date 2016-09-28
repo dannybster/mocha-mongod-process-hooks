@@ -35,10 +35,9 @@ function testProcessIsNotRunning(psQuery) {
 }
 
 function runTestsWithMongodOptions(description, mongodOptions, psQuery) {
-    if (process.env.LOG_LEVEL == 20) {
-        console.log(`Query: ${JSON.stringify(psQuery)}`);
-        console.log(`MongoDB options: ${JSON.stringify(mongodOptions)}`);
-    }
+    const sut = require('../src/mongod-process-hooks')(mongodOptions);
+    sut.debugLog(`Query: ${JSON.stringify(psQuery)}`);
+    sut.debugLog(`MongoDB options: ${JSON.stringify(mongodOptions)}`);
 
     describe(`=== The process hooks ${description}. ===`, function () {
         describe('Before requiring the process hooks', function () {
@@ -54,7 +53,7 @@ function runTestsWithMongodOptions(description, mongodOptions, psQuery) {
             // FILO so adding this as the first means it will run last. Phew!
             afterEach('the process should be running.', testProcessIsRunning(psQuery));
 
-            require('../src/mongod-process-hooks')(mongodOptions).start();
+            sut.start();
             it('the process should be running.', testProcessIsRunning(psQuery));
         });
 
