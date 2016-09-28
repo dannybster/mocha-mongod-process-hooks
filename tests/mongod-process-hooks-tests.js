@@ -35,6 +35,11 @@ function testProcessIsNotRunning(psQuery) {
 }
 
 function runTestsWithMongodOptions(description, mongodOptions, psQuery) {
+    if (process.env.LOG_LEVEL == 20) {
+        console.log(`Query: ${JSON.stringify(psQuery)}`);
+        console.log(`MongoDB options: ${JSON.stringify(mongodOptions)}`);
+    }
+
     describe(`=== The process hooks ${description}. ===`, function () {
         describe('Before requiring the process hooks', function () {
             it('the process should not be running.', testProcessIsNotRunning(psQuery));
